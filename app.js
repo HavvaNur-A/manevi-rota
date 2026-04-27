@@ -68,5 +68,3 @@ function saveRoute() {
 
   alert("Route saved! 🎉");
 }
-
-//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
