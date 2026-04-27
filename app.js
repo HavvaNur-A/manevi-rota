@@ -20,7 +20,7 @@ Format it clearly with numbered list.`;
   const response = await fetch("https://openrouter.ai/api/v1/chat/completions", {
     method: "POST",
     headers: {
-      "Authorization": "Bearer YOUR_KEY_HERE",
+      "Authorization": "Bearer " + API_KEY,
       "Content-Type": "application/json"
     },
     body: JSON.stringify({
