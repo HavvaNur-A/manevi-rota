@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Manevi Rota</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <nav>
+    <a href="index.html" class="logo">🕌 Manevi Rota</a>
+    <div>
+      <a href="index.html">Home</a>
+      <a href="saved.html">Saved Places</a>
+      <a href="about.html">About</a>
+    </div>
+  </nav>
+
+  <div class="hero">
+    <h1>Manevi Rota</h1>
+    <p>Discover spiritual & nature routes across Turkey</p>
+  </div>
+
+  <div class="search-box">
+    <select id="city-select">
+      <option value="">Select a city...</option>
+      <option value="Istanbul">Istanbul</option>
+      <option value="Konya">Konya</option>
+      <option value="Bursa">Bursa</option>
+      <option value="Ankara">Ankara</option>
+      <option value="Edirne">Edirne</option>
+    </select>
+    <select id="route-type">
+      <option value="both">Spiritual & Nature</option>
+      <option value="spiritual">Spiritual Only</option>
+      <option value="nature">Nature Only</option>
+    </select>
+    <button onclick="generateRoute()">Generate Route ✨</button>
+  </div>
+
+  <div id="result"></div>
+  <button id="save-btn" onclick="saveRoute()" style="display:none;">💾 Save This Route</button>
+
+  <footer>
+    <p>© 2026 Manevi Rota — Spiritual & Nature Routes of Turkey</p>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>

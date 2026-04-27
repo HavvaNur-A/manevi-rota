@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Saved Routes - Manevi Rota</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <nav>
+    <a href="index.html" class="logo">🕌 Manevi Rota</a>
+    <div>
+      <a href="index.html">Home</a>
+      <a href="saved.html">Saved Places</a>
+      <a href="about.html">About</a>
+    </div>
+  </nav>
+
+  <div class="hero">
+    <h1>Saved Routes</h1>
+    <p>Your personal spiritual & nature journey collection</p>
+  </div>
+
+  <div id="saved-container"></div>
+
+  <footer>
+    <p>© 2026 Manevi Rota — Spiritual & Nature Routes of Turkey</p>
+  </footer>
+
+  <script>
+    function loadSaved() {
+      const saved = JSON.parse(localStorage.getItem("savedRoutes") || "[]");
+      const container = document.getElementById("saved-container");
+
+      if (saved.length === 0) {
+        container.innerHTML = "<p class='no-saved'>No saved routes yet. Go generate one!</p>";
+        return;
+      }
+
+      saved.forEach((route, index) => {
+        const card = document.createElement("div");
+        card.className = "saved-card";
+        card.innerHTML = `
+          <div class="saved-card-header">
+            <h2>📍 ${route.city}</h2>
+            <span class="route-type">${route.type}</span>
+            <span class="route-date">${route.date}</span>
+          </div>
+          <div class="saved-card-content">${route.content}</div>
+          <button onclick="deleteRoute(${index})">🗑️ Delete</button>
+        `;
+        container.appendChild(card);
+      });
+    }
+
+    function deleteRoute(index) {
+      const saved = JSON.parse(localStorage.getItem("savedRoutes") || "[]");
+      saved.splice(index, 1);
+      localStorage.setItem("savedRoutes", JSON.stringify(saved));
+      document.getElementById("saved-container").innerHTML = "";
+      loadSaved();
+    }
+
+    loadSaved();
+  </script>
+
+</body>
+</html>
